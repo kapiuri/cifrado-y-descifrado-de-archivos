@@ -1,30 +1,30 @@
-## file encryption and decryption
+## Cifrado y descifrado de archivos
 
-## Encrypt a File
-Click "Encrypt File": This will open a dialog box for you to select the file you want to encrypt.
+## Cifrar un archivo
+Haga clic en "Cifrar archivo": esto abrirá un cuadro de diálogo para que seleccione el archivo que desea cifrar.
 
-Select the file: Navigate to the file you want to encrypt and select it. Then click "Open."
+Seleccione el archivo: navegue hasta el archivo que desea cifrar y selecciónelo. Luego haga clic en "Abrir".
 
-Key Generation: The program will automatically generate an encryption key and use it to encrypt the file.
+Generación de claves: el programa generará automáticamente una clave de cifrado y la utilizará para cifrar el archivo.
 
-Saving the Encrypted File and Key:
+Guardar el archivo cifrado y la clave:
 
-Encrypted File: The encrypted file will be saved in the same location as the original file, with the .enc extension added to the file name.
-Key File: The encryption key is saved in a separate file with the .key extension appended to the original file name. Save this file in a safe place, as you will need it to decrypt the file later.
-Success Message: A message will appear informing you that the file has been encrypted and that the key has been saved correctly.
+Archivo cifrado: el archivo cifrado se guardará en la misma ubicación que el archivo original, con la extensión .enc agregada al nombre del archivo.
+Archivo de clave: la clave de cifrado se guarda en un archivo separado con la extensión .key agregada al nombre del archivo original. Guarde este archivo en un lugar seguro, ya que lo necesitará para descifrarlo más adelante.
+Mensaje de éxito: Aparecerá un mensaje informándole que el archivo ha sido cifrado y que la clave se ha guardado correctamente.
 
 
-## Decrypt a File
-Click "Decrypt File": This will open a dialog box for you to select the encrypted file you want to decrypt.
+## Descifrar un archivo
+Haga clic en "Descifrar archivo": esto abrirá un cuadro de diálogo para que seleccione el archivo cifrado que desea descifrar.
 
-Select the encrypted file: Navigate to the encrypted file (with the .enc extension) and select it. Then click "Open."
+Seleccione el archivo cifrado: navegue hasta el archivo cifrado (con la extensión .enc) y selecciónelo. Luego haga clic en "Abrir".
 
-Select the key file: A second dialog box will open to select the key file (.key) that corresponds to the encrypted file.
+Seleccione el archivo clave: Se abrirá un segundo cuadro de diálogo para seleccionar el archivo clave (.key) que corresponde al archivo cifrado.
 
-File Decryption: The program will use the key to decrypt the encrypted file and save the decrypted contents to a new file. The new file will have the same name as the encrypted file, but without the .enc extension.
+Descifrado de archivos: el programa utilizará la clave para descifrar el archivo cifrado y guardar el contenido descifrado en un archivo nuevo. El nuevo archivo tendrá el mismo nombre que el archivo cifrado, pero sin la extensión .enc.
 
-Success Message: A message will appear informing you that the file has been successfully decrypted and saved to the original location.
+Mensaje de éxito: aparecerá un mensaje informándole que el archivo se ha descifrado y guardado correctamente en la ubicación original.
 
-## Additional Tips
-Save the Key: It is very important to save the key file in a safe place and separate from the encrypted file. Without the key, you will not be able to decrypt the file.
-Security: Be sure to use a strong password to protect the key file and the encrypted file if they are stored in locations accessible by other users.
+## Consejos adicionales
+Guarde la clave: es muy importante guardar el archivo de clave en un lugar seguro y separado del archivo cifrado. Sin la clave, no podrá descifrar el archivo.
+Seguridad: asegúrese de utilizar una contraseña segura para proteger el archivo clave y el archivo cifrado si están almacenados en ubicaciones accesibles a otros usuarios.
