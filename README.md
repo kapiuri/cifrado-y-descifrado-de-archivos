@@ -1,6 +1,6 @@
-# Aplicación de Cifrado y Firma Digital en Python
+# Aplicación de Cifrado, Firma Digital y Hash en Python
 
-Esta aplicación, desarrollada en Python utilizando Tkinter y las bibliotecas `cryptography` y `pycryptodome`, proporciona funcionalidades para cifrar y descifrar archivos utilizando cifrado simétrico (AES) y asimétrico (RSA), así como para firmar y verificar firmas digitales.
+Esta aplicación, desarrollada en Python utilizando Tkinter y las bibliotecas `cryptography` y `pycryptodome`, proporciona funcionalidades para cifrar y descifrar archivos utilizando cifrado simétrico (AES) y asimétrico (RSA), así como para firmar y verificar firmas digitales. También permite generar y verificar hashes SHA-256 de archivos.
 
 ## Requisitos
 
@@ -9,8 +9,9 @@ Esta aplicación, desarrollada en Python utilizando Tkinter y las bibliotecas `c
 
 ## Instalación
 
-1. **Clonar el repositorio** o descargar el archivo Python.
-2. **Instalar las dependencias** usando pip:
+1. Clona el repositorio o descarga los archivos Python.
+
+2. Instala las dependencias usando pip:
 
     ```bash
     pip install cryptography pycryptodome
@@ -18,63 +19,91 @@ Esta aplicación, desarrollada en Python utilizando Tkinter y las bibliotecas `c
 
 ## Uso
 
-1. **Ejecuta la aplicación**. Puedes hacerlo ejecutando el archivo Python en tu terminal o desde un entorno de desarrollo:
+Para ejecutar la aplicación, abre tu terminal y navega a la carpeta que contiene `main.py`. Luego, ejecuta el siguiente comando:
 
-    ```bash
-    python main.py
-    ```
+```bash
+python main.py
 
-2. **Interfaz de Usuario**:
-   - **Cifrado Simétrico (AES)**:
-     - **Cifrar Archivo (AES)**: Selecciona el archivo a cifrar. La aplicación generará una clave aleatoria, cifrará el archivo usando AES y guardará la clave en un archivo `.key`.
-     - **Descifrar Archivo (AES)**: Selecciona el archivo cifrado y el archivo de clave correspondiente. La aplicación descifrará el archivo y lo guardará con el nombre original.
+Interfaz de Usuario
+La aplicación se abre con una interfaz gráfica que permite realizar las siguientes operaciones:
 
-   - **Cifrado Asimétrico (RSA) y Firma Digital**:
-     - **Generar Claves RSA**: Genera un par de claves RSA (pública y privada) y las guarda en archivos `.pem`.
-     - **Cifrar Archivo (RSA)**: Selecciona el archivo a cifrar y la clave pública. La aplicación cifrará el archivo usando RSA.
-     - **Descifrar Archivo (RSA)**: Selecciona el archivo cifrado y la clave privada. La aplicación descifrará el archivo.
-     - **Firmar Archivo**: Selecciona el archivo a firmar y la clave privada. La aplicación generará una firma digital y la guardará en un archivo `.sig`.
-     - **Verificar Firma**: Selecciona el archivo firmado, el archivo de firma y la clave pública. La aplicación verificará la validez de la firma.
+Cifrado Simétrico (AES)
+Cifrar Archivo (AES):
 
-## Detalles Técnicos
+Selecciona el archivo que deseas cifrar.
+La aplicación generará una clave aleatoria, cifrará el archivo usando AES, y guardará la clave en un archivo .key.
+El archivo cifrado se guardará con la extensión .enc.
+Descifrar Archivo (AES):
 
-### Cifrado Simétrico (AES)
-- **Método**: `AES.MODE_CBC` con padding para asegurar el tamaño del bloque.
-- **Archivo Cifrado**: Guardado con extensión `.enc`.
-- **Archivo de Clave**: Guardado con extensión `.key`.
+Selecciona el archivo cifrado .enc y el archivo de clave .key.
+La aplicación descifrará el archivo y lo guardará con el nombre original.
+Cifrado Asimétrico (RSA) y Firma Digital
+Generar Claves RSA:
 
-### Cifrado Asimétrico (RSA)
-- **Generación de Claves**: Claves RSA de 2048 bits.
-- **Cifrado y Descifrado**: Usando padding OAEP con SHA-256.
-- **Archivos de Claves**: Claves públicas y privadas guardadas en formato PEM.
+Genera un par de claves RSA (pública y privada) y las guarda en archivos .pem.
+La clave privada se usa para cifrar y firmar, mientras que la clave pública se usa para descifrar y verificar.
+Cifrar Archivo (RSA):
 
-### Firma Digital
-- **Método**: RSA con padding PSS y SHA-256.
-- **Archivo de Firma**: Guardado con extensión `.sig`.
+Selecciona el archivo que deseas cifrar y la clave pública .pem.
+La aplicación cifrará el archivo usando RSA.
+El archivo cifrado se guardará con la extensión .enc.
+Descifrar Archivo (RSA):
 
-## Código
+Selecciona el archivo cifrado .enc y la clave privada .pem.
+La aplicación descifrará el archivo y lo guardará con el nombre original.
+Firmar Archivo:
 
-### Archivo Python (`tu_archivo.py`)
+Selecciona el archivo que deseas firmar y la clave privada .pem.
+La aplicación generará una firma digital y la guardará en un archivo .sig.
+Verificar Firma:
 
-- **Clases Principales**:
-  - `AESCipher`: Métodos para cifrar y descifrar archivos usando AES.
-  - `RSACipher`: Métodos para generar claves RSA, cifrar y descifrar archivos usando RSA.
-  - `DigitalSignature`: Métodos para firmar y verificar firmas digitales.
-  - `CryptoApp`: Interfaz gráfica de usuario para interactuar con las funcionalidades de cifrado y firma.
+Selecciona el archivo firmado, el archivo de firma .sig, y la clave pública .pem.
+La aplicación verificará la validez de la firma y te informará si es válida o no.
+Hashing SHA-256
+Generar Hash de Archivo:
 
-## Ejemplo de Uso
+Selecciona el archivo para calcular su hash SHA-256.
+La aplicación guardará el hash en un archivo .hash.
+Verificar Hash de Archivo:
 
-1. **Cifrar un archivo con AES**:
-   - Selecciona "Cifrar Archivo (AES)".
-   - Elige el archivo que deseas cifrar.
-   - Guarda el archivo cifrado y la clave generada.
+Selecciona el archivo cuyo hash deseas verificar y el archivo de hash .hash que contiene el hash esperado.
+La aplicación comparará el hash del archivo con el valor esperado y te informará si coincide o no.
+Archivos del Proyecto
+main.py: Contiene la interfaz gráfica de usuario y la lógica para cifrar, descifrar, firmar, verificar firmas y manejar hashes de archivos. Este es el archivo principal que ejecutas para iniciar la aplicación.
 
-2. **Firmar un archivo con RSA**:
-   - Selecciona "Firmar Archivo".
-   - Elige el archivo que deseas firmar.
-   - Guarda la firma generada.
+signature.py: Define la clase DigitalSignature que proporciona métodos para firmar archivos y verificar firmas digitales.
 
-3. **Verificar una firma digital**:
-   - Selecciona "Verificar Firma".
-   - Elige el archivo firmado, el archivo de firma y la clave pública.
-   - La aplicación te informará si la firma es válida o no.
+cipherrsa.py: Define la clase RSACipher que proporciona métodos para generar claves RSA, cifrar y descifrar archivos usando RSA.
+
+cipheraes.py: Define la clase AESCipher que proporciona métodos para cifrar y descifrar archivos usando AES.
+
+hashing.py: Define funciones para generar y verificar hashes SHA-256 de archivos.
+
+Ejemplo de Uso
+Cifrar un archivo con AES:
+Abre la aplicación.
+Selecciona "Cifrar Archivo (AES)".
+Elige el archivo que deseas cifrar.
+Guarda el archivo cifrado y la clave generada.
+Firmar un archivo con RSA:
+Abre la aplicación.
+Selecciona "Firmar Archivo".
+Elige el archivo que deseas firmar.
+Guarda la firma generada en un archivo .sig.
+Verificar una firma digital:
+Abre la aplicación.
+Selecciona "Verificar Firma".
+Elige el archivo firmado, el archivo de firma .sig, y la clave pública .pem.
+La aplicación te informará si la firma es válida o no.
+Generar y verificar un hash SHA-256:
+Generar Hash:
+
+Selecciona "Generar Hash de Archivo".
+Elige el archivo para calcular su hash SHA-256.
+Guarda el hash en un archivo .hash.
+Verificar Hash:
+
+Selecciona "Verificar Hash de Archivo".
+Elige el archivo cuyo hash deseas verificar y el archivo .hash que contiene el hash esperado.
+La aplicación comparará el hash del archivo con el valor esperado.
+¡Esperamos que esta aplicación te sea útil para gestionar cifrados, firmas y hashes de archivos!
