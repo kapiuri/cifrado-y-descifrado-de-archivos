@@ -1,30 +1,36 @@
-## Cifrado y descifrado de archivos
+# Aplicación de Cifrado y Firma Digital
 
-## Cifrar un archivo
-Haga clic en "Cifrar archivo": esto abrirá un cuadro de diálogo para que seleccione el archivo que desea cifrar.
+## Descripción
 
-Seleccione el archivo: navegue hasta el archivo que desea cifrar y selecciónelo. Luego haga clic en "Abrir".
+Esta aplicación de escritorio permite realizar operaciones de cifrado y descifrado de archivos utilizando algoritmos de cifrado simétrico (AES) y asimétrico (RSA), así como firmar y verificar firmas digitales. La interfaz gráfica está construida utilizando Tkinter y las operaciones criptográficas se realizan con las bibliotecas `cryptography` y `pycryptodome`.
 
-Generación de claves: el programa generará automáticamente una clave de cifrado y la utilizará para cifrar el archivo.
+## Funcionalidades
 
-Guardar el archivo cifrado y la clave:
+### Cifrado Simétrico (AES)
 
-Archivo cifrado: el archivo cifrado se guardará en la misma ubicación que el archivo original, con la extensión .enc agregada al nombre del archivo.
-Archivo de clave: la clave de cifrado se guarda en un archivo separado con la extensión .key agregada al nombre del archivo original. Guarde este archivo en un lugar seguro, ya que lo necesitará para descifrarlo más adelante.
-Mensaje de éxito: Aparecerá un mensaje informándole que el archivo ha sido cifrado y que la clave se ha guardado correctamente.
+- **Cifrar Archivo (AES)**: Cifra un archivo utilizando el algoritmo de cifrado simétrico AES. La clave de cifrado se genera aleatoriamente y se guarda en un archivo separado.
+- **Descifrar Archivo (AES)**: Descifra un archivo cifrado previamente con AES. Requiere la clave de cifrado utilizada para el cifrado.
 
+### Cifrado Asimétrico (RSA)
 
-## Descifrar un archivo
-Haga clic en "Descifrar archivo": esto abrirá un cuadro de diálogo para que seleccione el archivo cifrado que desea descifrar.
+- **Generar Claves RSA**: Genera un par de claves RSA (clave pública y clave privada) y las guarda en archivos `.pem`.
+- **Cifrar Archivo (RSA)**: Cifra un archivo utilizando la clave pública RSA. El archivo cifrado se guarda con la extensión `.enc`.
+- **Descifrar Archivo (RSA)**: Descifra un archivo cifrado previamente con RSA. Requiere la clave privada RSA utilizada para el descifrado.
 
-Seleccione el archivo cifrado: navegue hasta el archivo cifrado (con la extensión .enc) y selecciónelo. Luego haga clic en "Abrir".
+### Firma Digital
 
-Seleccione el archivo clave: Se abrirá un segundo cuadro de diálogo para seleccionar el archivo clave (.key) que corresponde al archivo cifrado.
+- **Firmar Archivo**: Firma un archivo utilizando la clave privada RSA. La firma se guarda en un archivo con la extensión `.sig`.
+- **Verificar Firma**: Verifica la firma de un archivo utilizando la clave pública RSA. Confirma si la firma es válida para el archivo dado.
 
-Descifrado de archivos: el programa utilizará la clave para descifrar el archivo cifrado y guardar el contenido descifrado en un archivo nuevo. El nuevo archivo tendrá el mismo nombre que el archivo cifrado, pero sin la extensión .enc.
+## Requisitos
 
-Mensaje de éxito: aparecerá un mensaje informándole que el archivo se ha descifrado y guardado correctamente en la ubicación original.
+- Python 3.x
+- Bibliotecas:
+  - `tkinter`
+  - `cryptography`
+  - `pycryptodome`
 
-## Consejos adicionales
-Guarde la clave: es muy importante guardar el archivo de clave en un lugar seguro y separado del archivo cifrado. Sin la clave, no podrá descifrar el archivo.
-Seguridad: asegúrese de utilizar una contraseña segura para proteger el archivo clave y el archivo cifrado si están almacenados en ubicaciones accesibles a otros usuarios.
+Puedes instalar las bibliotecas requeridas usando pip:
+
+```bash
+pip install cryptography pycryptodome
